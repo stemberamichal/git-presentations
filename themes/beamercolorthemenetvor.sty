@@ -5,10 +5,17 @@
 
 \mode<presentation>
 
+% colors
 \definecolor{darkred}{RGB}{170,64,92}
 \definecolor{purple}{RGB}{142,51,117} 		%gradient's darkest
 \definecolor{pinkpurple}{RGB}{163,64,109} 	%gradient's middle
 \definecolor{pink}{RGB}{209,90,93}			%gradient's lightest
+
+%palettes
+\setbeamercolor*{palette primary}{bg=pink,fg=gray!30!white}
+\setbeamercolor*{palette secondary}{bg=pinkpurple,fg=gray!15!white}
+\setbeamercolor*{palette tertiary}{bg=purple,fg=gray!10!white}
+\setbeamercolor*{palette quaternary}{bg=pink,fg=gray!5!white}
 
 \setbeamercolor*{title}{parent=palette tertiary}
 
@@ -17,25 +24,21 @@
 \setbeamercolor*{date in head/foot}{parent=palette primary}
 
 \setbeamercolor{section in toc}{fg=black,bg=white}
-\setbeamercolor{alerted text}{fg=darkred!80!gray}
-\setbeamercolor*{palette primary}{fg=darkred!60!black,bg=gray!30!white}
-\setbeamercolor*{palette secondary}{fg=darkred!70!black,bg=gray!15!white}
-\setbeamercolor*{palette tertiary}{bg=darkred!80!black,fg=gray!10!white}
-\setbeamercolor*{palette quaternary}{fg=darkred,bg=gray!5!white}
+\setbeamercolor{alerted text}{fg=purple!80!gray}
 
-\setbeamercolor*{sidebar}{fg=darkred,bg=gray!15!white}
+\setbeamercolor*{sidebar}{fg=purple,bg=gray!15!white}
 
-\setbeamercolor*{palette sidebar primary}{fg=darkred!10!black}
+\setbeamercolor*{palette sidebar primary}{fg=purple!10!black}
 \setbeamercolor*{palette sidebar secondary}{fg=white}
-\setbeamercolor*{palette sidebar tertiary}{fg=darkred!50!black}
+\setbeamercolor*{palette sidebar tertiary}{fg=purple!50!black}
 \setbeamercolor*{palette sidebar quaternary}{fg=gray!10!white}
 
 %\setbeamercolor*{titlelike}{parent=palette primary}
-\setbeamercolor{titlelike}{parent=pallette primary,fg=darkred}
+\setbeamercolor{titlelike}{parent=pallette primary,fg=purple}
 \setbeamercolor{frametitle}{bg=gray!10!white}
 \setbeamercolor{frametitle right}{bg=gray!60!white}
 
-\setbeamercolor*{item}{fg=darkred}
+\setbeamercolor*{item}{fg=purple}
 
 \setbeamercolor*{separation line}{}
 \setbeamercolor*{fine separation line}{}
