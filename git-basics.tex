@@ -7,24 +7,81 @@
 \usetheme{netvor}
 \usepackage{color}
 \usepackage{gitdags}
+\usepackage{listings}
+\usepackage{minted}
+
+% Settings
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  frame=single
+}
+
+% definition of diff language
+\lstdefinelanguage{diff}{
+  morecomment=[f][\color{blue}]{@@},     % group identifier
+  morecomment=[f][\color{red}]-,         % deleted lines 
+  morecomment=[f][\color{green}]+,       % added lines
+  morecomment=[f][\color{magenta}]{---}, % Diff header lines (must appear after +,-)
+  morecomment=[f][\color{magenta}]{+++},
+}
+
 
 \title{git basics}  
-\author{Michal \v{S}tembera} 
+\author{Michal \v Stembera} 
 \titlegraphic{\includegraphics[height=0.10\textheight]{logo_netvor}}
-
 \date{\today} 
+
+% TITLEPAGE
 \begin{document}
 \begin{frame}
 	\titlepage
 \end{frame} 
-
 
 \begin{frame}
 \frametitle{Table of contents}
 \tableofcontents
 \end{frame} 
 
-%
+% GIT INIT
+\begin{frame}[fragile]
+\frametitle{Getting git repository}
+	\begin{lstlisting}[language=bash, caption={Creating new repository}]
+	git init git-presentation-repo
+	\end{lstlisting}
+
+	\begin{lstlisting}[language=bash, caption={Clone remote repository}]
+	git clone https://github.com/user/repo.git	
+	\end{lstlisting}
+\end{frame} 
+
+% GIT INIT - CONSEQUENCES
+\begin{frame}[fragile]
+\frametitle{Initialized repository}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			What we did:
+			\begin{itemize}
+				\item Folder git-presentation-repo
+				\item Subfolder .git with basic content
+				\item Branch master
+			\end{itemize}	
+			What we did not do:
+			\begin{itemize}
+				\item Not created tracked files or commits
+				\item Not added remote repository
+			\end{itemize}
+			Verify:
+			\begin{lstlisting}[language=bash, caption={List all folders and files}]
+				find .
+			\end{lstlisting}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\includegraphics[width=\textwidth]{empty-repo-tree}
+		\end{column}	
+	\end{columns}
+\end{frame} 
+
+% WHAT IS GIT
 \section{What is git} 
 \subsection{Subsection no.1.1}
 \begin{frame}
@@ -43,6 +100,20 @@
      \end{center}
 \end{column} 
 \end{columns}
+\end{frame}
+
+% ADDING REMOTE
+\begin{frame}[fragile]
+\frametitle{Adding remote}
+	\begin{lstlisting}[language=bash, caption={Add remote}]
+	git remote add name\
+		https://github.com/user/repo.git
+	\end{lstlisting}
+	
+	\begin{lstlisting}[language=bash, caption={Add remote called origin}]
+	git remote add origin\
+		https://github.com/user/repo.git
+	\end{lstlisting}
 \end{frame}
 
 \begin{frame}
@@ -67,20 +138,18 @@
 
 \begin{frame}
 \frametitle{The Three States}
-\begin{columns}
-\begin{column}{0.4\textwidth}
-	\begin{itemize}
-		\item Exposed as deltas
-		\item Internally stored as snapshots
-	\end{itemize}
-\end{column}
-\begin{column}{0.6\textwidth}  %%<--- here
+	\begin{description}[Three states]
+		\item [Working directory] Current changes to the filesystem
+		\item [Staging area]Changes marked for commit
+		\item [Commited] Internally stored as snapshots
+	\end{description}
     \begin{center}
     \includegraphics[width=0.6\textwidth]{areas}
-    
     \end{center}
-\end{column}
-\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+	\lstinputlisting[language=diff]{basics.diff}
 \end{frame}
 
 \begin{frame}
@@ -189,104 +258,6 @@
     \end{tikzpicture}
 \end{figure}}
 \end{columns}
-\end{frame}
-
-\begin{frame}\frametitle{lists with single pauses}
-\begin{itemize}
-\item Introduction to  \LaTeX{}  \pause 
-\item Course 2 \pause 
-\item Termpapers and presentations with \LaTeX{}  \pause 
-\item Beamer class
-\end{itemize} 
-\end{frame}
-
-\begin{frame}\frametitle{lists with pause}
-\begin{itemize}[<+->]
-\item Introduction to  \LaTeX{}  
-\item Course 2
-\item Termpapers and presentations with \LaTeX{}  
-\item Beamer class
-\end{itemize} 
-\end{frame}
-
-\subsection{Lists II}
-\begin{frame}\frametitle{numbered lists}
-\begin{enumerate}
-\item Introduction to  \LaTeX{}   
-\item Course 2 
-\item Termpapers and presentations with \LaTeX{}  
-\item Beamer class
-\end{enumerate}
-\end{frame}
-
-\begin{frame}
-\frametitle{numbered lists with single pauses}
-\begin{enumerate}
-\item Introduction to  \LaTeX{}  \pause 
-\item Course 2 \pause 
-\item Termpapers and presentations with \LaTeX{}  \pause 
-\item Beamer class
-\end{enumerate}
-\end{frame}
-
-\begin{frame}
-\frametitle{numbered lists with pause}
-\begin{enumerate}[<+->]
-\item Introduction to  \LaTeX{}  
-\item Course 2
-\item Termpapers and presentations with \LaTeX{}  
-\item Beamer class
-\end{enumerate}
-\end{frame}
-
-
-
-
-\section{Section no.3} 
-\subsection{Tables}
-\begin{frame}
-\frametitle{Tables}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Date} & \textbf{Instructor} & \textbf{Title} \\
-\hline
-WS 04/05 & Sascha Frank & First steps with  \LaTeX  \\
-\hline
-SS 05 & Sascha Frank & \LaTeX \ Course serial \\
-\hline
-\end{tabular}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Tables with pause}
-\begin{tabular}{c c c}
-A & B & C \\ 
-\pause 
-1 & 2 & 3 \\  
-\pause 
-A & B & C \\ 
-\end{tabular} 
-\end{frame}
-
-
-\section{Section no. 4}
-\subsection{blocs}
-\begin{frame}
-\frametitle{blocs}
-
-\begin{block}{title of the bloc}
-bloc text
-\end{block}
-
-\begin{exampleblock}{title of the bloc}
-bloc text
-\end{exampleblock}
-
-
-\begin{alertblock}{title of the bloc}
-bloc text
-\end{alertblock}
 \end{frame}
 
 \end{document}

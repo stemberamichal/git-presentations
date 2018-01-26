@@ -1,0 +1,66 @@
+diff --git a/git-basics.tex b/git-basics.tex
+index 2969036..92232d6 100644
+--- a/git-basics.tex
++++ b/git-basics.tex
+@@ -7,6 +7,23 @@
+ \usetheme{netvor}
+ \usepackage{color}
+ \usepackage{gitdags}
++\usepackage{listings}
++
++% Settings
++\lstset{basicstyle=\ttfamily,
++  showstringspaces=false,
++  commentstyle=\color{red},
++  keywordstyle=\color{blue}
++}
++
++\lstdefinelanguage{diff}{
++  morecomment=[f][\color{blue}]{@@},     % group identifier
++  morecomment=[f][\color{red}]-,         % deleted lines 
++  morecomment=[f][\color{green}]+,       % added lines
++  morecomment=[f][\color{magenta}]{---}, % Diff header lines (must appear after +,-)
++  morecomment=[f][\color{magenta}]{+++},
++}
++
+ 
+ \title{git basics}  
+ \author{Michal \v{S}tembera} 
+@@ -67,20 +84,26 @@
+ 
+ \begin{frame}
+ \frametitle{The Three States}
+-\begin{columns}
+-\begin{column}{0.4\textwidth}
+-	\begin{itemize}
+-		\item Exposed as deltas
+-		\item Internally stored as snapshots
+-	\end{itemize}
+-\end{column}
+-\begin{column}{0.6\textwidth}  %%<--- here
++	\begin{description}[Three states]
++		\item [Working directory] Current changes to the filesystem
++		\item [Staging area]Changes marked for commit
++		\item [Commited] Internally stored as snapshots
++	\end{description}
+     \begin{center}
+     \includegraphics[width=0.6\textwidth]{areas}
+-    
+     \end{center}
+-\end{column}
+-\end{columns}
++\end{frame}
++
++\begin{frame}[fragile]
++\frametitle{Getting a repository}
++
++\begin{lstlisting}[language=git,caption={Create new empty repository}]
++	git init git-presentations-repo
++\end{lstlisting}
++Clone existing repository
++\begin{lstlisting}
++	git clone https://github.com/user/repo.git
++\end{lstlisting}
+ \end{frame}
+ 
+ \begin{frame}
