@@ -1,9 +1,9 @@
 \beamer@endinputifotherversion {3.33pt}
 \beamer@sectionintoc {1}{What is git}{6}{0}{1}
 \beamer@subsectionintoc {1}{1}{Subsection no.1.1}{6}{0}{1}
-\beamer@sectionintoc {2}{Section no. 2}{11}{0}{2}
-\beamer@subsectionintoc {2}{1}{Lists I}{11}{0}{2}
-\beamer@sectionintoc {3}{Section no. 2}{12}{0}{3}
-\beamer@subsectionintoc {3}{1}{Lists I}{12}{0}{3}
-\beamer@sectionintoc {4}{Section no. 2}{13}{0}{4}
-\beamer@subsectionintoc {4}{1}{Lists I}{13}{0}{4}
+\beamer@sectionintoc {2}{Section no. 2}{14}{0}{2}
+\beamer@subsectionintoc {2}{1}{Lists I}{14}{0}{2}
+\beamer@sectionintoc {3}{Section no. 2}{15}{0}{3}
+\beamer@subsectionintoc {3}{1}{Lists I}{15}{0}{3}
+\beamer@sectionintoc {4}{Section no. 2}{16}{0}{4}
+\beamer@subsectionintoc {4}{1}{Lists I}{16}{0}{4}
