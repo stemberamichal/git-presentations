@@ -4,11 +4,12 @@
 \documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \usepackage{lmodern}
 %\usetheme{CambridgeUS}
-\usetheme{netvor}
 \usepackage{color}
 \usepackage{gitdags}
 \usepackage{listings}
 \usepackage{minted}
+
+\usepackage{themes/beamerthemenetvor}
 
 % Settings
 \lstset{basicstyle=\ttfamily,
@@ -50,7 +51,8 @@
 	\end{lstlisting}
 
 	\begin{lstlisting}[language=bash, caption={Clone remote repository}]
-	git clone https://github.com/user/repo.git	
+	git clone\
+	  https://github.com/stemberamichal/Perfect
 	\end{lstlisting}
 \end{frame} 
 
@@ -105,17 +107,66 @@
 % ADDING REMOTE
 \begin{frame}[fragile]
 \frametitle{Adding remote}
-	\begin{lstlisting}[language=bash, caption={Add remote}]
-	git remote add name\
-		https://github.com/user/repo.git
-	\end{lstlisting}
-	
 	\begin{lstlisting}[language=bash, caption={Add remote called origin}]
 	git remote add origin\
-		https://github.com/user/repo.git
+	  https://github.com/stemberamichal/Perfect
+	\end{lstlisting}
+	
+	\begin{lstlisting}[language=bash, caption={Add another remote}]
+	git remote add perfect\
+	  https://github.com/PerfectlySoft/Perfect
 	\end{lstlisting}
 \end{frame}
 
+% SYNCHRONIZING CHANGES
+\begin{frame}[fragile]
+\frametitle{Fetch repositories}
+\begin{figure}
+    \begin{tikzpicture}
+      \gitDAG[grow right sep = 2em]{
+        A -- B -- { 
+          C,
+          D -- E,
+        }
+      };
+      % Local branch
+      \gitbranch
+      	[master]
+      	{master}
+      	{above=of A}
+      	{A}
+      % Remote branch
+		\pause\gitremotebranch
+        [origmaster]    % node name
+        {origin/master} % node text
+        {above=of C}    % node placement
+        {C}             % target
+      \pause\gitremotebranch
+        [perfmaster]    % node name
+        {perfect/master} % node text
+        {above=of E}    % node placement
+        {E}             % target
+    \end{tikzpicture}
+\end{figure}
+	% git fetch origin
+	\begin{lstlisting}[language=bash]
+	git fetch origin
+	\end{lstlisting}
+	% git fetch perfect 2+
+	\begin{onlyenv}<2->
+	\begin{lstlisting}[language=bash]
+	git fetch perfect
+	\end{lstlisting}
+	\end{onlyenv}
+	% git fetch -all 3+
+	\begin{onlyenv}<3->
+	\begin{lstlisting}[language=bash]
+		git fetch --all
+	\end{lstlisting}
+	\end{onlyenv}
+\end{frame}
+
+% INTERNAL REPRESENTATIONS
 \begin{frame}
 \frametitle{Deltas or snapshot}
 \begin{columns}
@@ -136,6 +187,7 @@
 \end{columns}
 \end{frame}
 
+% GIT STATES
 \begin{frame}
 \frametitle{The Three States}
 	\begin{description}[Three states]
